@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- environments 是配置多个jdbc环境 
+		default表示使用的默认环境 
+	 -->
+	<environments default="development">
+		<!-- 
+			environment 标签用来配置一个环境 
+				id 是环境的标识
+		 -->
+		<environment id="development">
+		
+			<transactionManager type="JDBC" />
+			<!-- 
+				dataSource标签配置连接池
+					type="POOLED"	表示启用数据库连接池
+					type="UNPOOLED"	表示不启用数据库连接池
+			 -->
+			<dataSource type="POOLED">
+				<!-- 连接数据库的驱动类 -->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<!-- 数据库访问地址 -->
+				<property name="url" value="jdbc:mysql://49.235.248.17:3306/mybatis" />
+				<!-- 数据库用户名 -->
+				<property name="username" value="root" />
+				<!-- 数据库密码 -->
+				<property name="password" value="Tan128505.." />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- 导入mapper配置文件 -->
+		<mapper resource="com/tan/mybatis/mapper/UserMapper.xml" />
+	</mappers>
+</configuration>
